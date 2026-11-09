@@ -28,8 +28,11 @@ HIDComm.dll ──► WriteFile (HID OUT)         UsbHidTransport ──► bulk
 - [`dist/ParadoxZx68-1.0.1-debug.apk`](dist/ParadoxZx68-1.0.1-debug.apk)
   (±6,6 MB, minSdk 23 / Android 6.0+, targetSdk 34)
 
-Di GitHub, buka file di atas lalu tekan tombol **Download** (atau
-`Raw`). Setelah terunduh, buka file APK-nya di HP.
+Tautan unduh langsung (tanpa halaman GitHub):
+<https://raw.githubusercontent.com/rizalurrokhim/paradox_driver/main/dist/ParadoxZx68-1.0.1-debug.apk>
+
+Buka tautan itu di browser HP, lalu pasang file APK yang terunduh
+(±5,8 MB, SHA-256 diawali `4c2ac0ca`).
 
 > APK ditandatangani sertifikat **debug** Android. Untuk memasangnya, aktifkan
 > "Instal dari sumber tidak dikenal" untuk aplikasi file/browser yang Anda pakai.
@@ -81,6 +84,20 @@ cabut dan colok ulang kabel OTG.
   CRC. Alat ini yang dipakai kalau ada perilaku firmware yang berbeda.
 - **Info & uji mandiri** — memverifikasi CRC, susunan frame, encoding keymap,
   dan pemuatan aset tanpa perangkat.
+
+## Verifikasi cepat setelah pasang
+
+1. Buka aplikasi → **Info & uji mandiri** → **Jalankan uji mandiri**.
+   Semua baris harus `PASS` (CRC, frame, encoding keymap, aset).
+2. Colokkan keyboard lewat OTG → **Hubungkan keyboard** → **Izinkan**.
+   Log harus menampilkan `claimInterface(...) = true` dan endpoint OUT.
+3. **Konsol protokol** → kirim bawaan `cmd 0x01 sub 9` (baca kapabilitas).
+   Bila ada balasan `RX` dengan `CRC valid: true`, jalur baca sudah benar.
+4. **Pencahayaan** → ubah kecerahan → **Kirim ke keyboard**. LED keyboard
+   harus berubah. Bila sudah berubah, tekan **Kirim & simpan** agar bertahan.
+
+Kalau langkah 3 tidak menghasilkan balasan, kirim isi log TX/RX saat melapor —
+log itu menunjukkan persis di mana jalurnya berhenti.
 
 ## Troubleshooting
 
