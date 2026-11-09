@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Manifest Paradox ZX68 Configurator.
+
+    Aplikasi memakai USB Host API Android (tanpa root) untuk berbicara langsung
+    dengan keyboard Ghost/Paradox ZX68 memakai protokol HID 64 byte yang sama
+    dengan driver Windows aslinya.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Wajib: perangkat harus punya USB host (OTG) untuk mode USB passthrough. -->
+    <uses-feature android:name="android.hardware.usb.host" android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Zx68">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- Membuka aplikasi otomatis saat keyboard ZX68 dicolokkan. -->
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+            </intent-filter>
+            <meta-data
+                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+                android:resource="@xml/device_filter" />
+        </activity>
+
+        <activity android:name=".ui.LightingActivity" android:exported="false" />
+        <activity android:name=".ui.KeymapActivity" android:exported="false" />
+        <activity android:name=".ui.ConsoleActivity" android:exported="false" />
+        <activity android:name=".ui.AboutActivity" android:exported="false" />
+    </application>
+</manifest>

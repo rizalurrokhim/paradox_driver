@@ -1,0 +1,1118 @@
+[
+ {
+  "name": "Escape",
+  "show": "Esc",
+  "logic": 47,
+  "location": 0,
+  "rect": [
+   158,
+   189,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "1",
+  "show": "1",
+  "logic": 36,
+  "location": 2,
+  "rect": [
+   213,
+   189,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "2",
+  "show": "2",
+  "logic": 37,
+  "location": 3,
+  "rect": [
+   268,
+   189,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "3",
+  "show": "3",
+  "logic": 38,
+  "location": 4,
+  "rect": [
+   323,
+   189,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "4",
+  "show": "4",
+  "logic": 39,
+  "location": 5,
+  "rect": [
+   378,
+   189,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "5",
+  "show": "5",
+  "logic": 40,
+  "location": 6,
+  "rect": [
+   433,
+   189,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "6",
+  "show": "6",
+  "logic": 41,
+  "location": 7,
+  "rect": [
+   488,
+   189,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "7",
+  "show": "7",
+  "logic": 42,
+  "location": 8,
+  "rect": [
+   543,
+   189,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "8",
+  "show": "8",
+  "logic": 43,
+  "location": 9,
+  "rect": [
+   598,
+   189,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "9",
+  "show": "9",
+  "logic": 44,
+  "location": 10,
+  "rect": [
+   653,
+   189,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "0",
+  "show": "0",
+  "logic": 45,
+  "location": 11,
+  "rect": [
+   708,
+   189,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "-",
+  "show": "-",
+  "logic": 51,
+  "location": 12,
+  "rect": [
+   763,
+   189,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "=",
+  "show": "=",
+  "logic": 52,
+  "location": 13,
+  "rect": [
+   818,
+   189,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "Backspace",
+  "show": "\u2190",
+  "logic": 48,
+  "location": 14,
+  "rect": [
+   873,
+   189,
+   108,
+   54
+  ]
+ },
+ {
+  "name": "insert",
+  "show": "insert",
+  "logic": 78,
+  "location": 16,
+  "rect": [
+   984,
+   189,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "LED-LEFT-1",
+  "show": "",
+  "logic": -1,
+  "location": 20,
+  "rect": [
+   145,
+   224,
+   10,
+   0
+  ]
+ },
+ {
+  "name": "LED-RIGHT-1",
+  "show": "",
+  "logic": -1,
+  "location": 21,
+  "rect": [
+   1039,
+   224,
+   10,
+   0
+  ]
+ },
+ {
+  "name": "Tab",
+  "show": "Tab",
+  "logic": 49,
+  "location": 22,
+  "rect": [
+   158,
+   244,
+   82,
+   50
+  ]
+ },
+ {
+  "name": "Q",
+  "show": "Q",
+  "logic": 26,
+  "location": 24,
+  "rect": [
+   241,
+   244,
+   50,
+   50
+  ]
+ },
+ {
+  "name": "W",
+  "show": "W",
+  "logic": 32,
+  "location": 25,
+  "rect": [
+   295,
+   244,
+   50,
+   50
+  ]
+ },
+ {
+  "name": "E",
+  "show": "E",
+  "logic": 14,
+  "location": 26,
+  "rect": [
+   351,
+   244,
+   50,
+   50
+  ]
+ },
+ {
+  "name": "R",
+  "show": "R",
+  "logic": 27,
+  "location": 27,
+  "rect": [
+   407,
+   244,
+   50,
+   50
+  ]
+ },
+ {
+  "name": "T",
+  "show": "T",
+  "logic": 29,
+  "location": 28,
+  "rect": [
+   461,
+   244,
+   50,
+   50
+  ]
+ },
+ {
+  "name": "Y",
+  "show": "Y",
+  "logic": 34,
+  "location": 29,
+  "rect": [
+   517,
+   244,
+   50,
+   50
+  ]
+ },
+ {
+  "name": "U",
+  "show": "U",
+  "logic": 30,
+  "location": 30,
+  "rect": [
+   572,
+   244,
+   50,
+   50
+  ]
+ },
+ {
+  "name": "I",
+  "show": "I",
+  "logic": 18,
+  "location": 31,
+  "rect": [
+   627,
+   244,
+   50,
+   50
+  ]
+ },
+ {
+  "name": "O",
+  "show": "O",
+  "logic": 24,
+  "location": 32,
+  "rect": [
+   682,
+   244,
+   50,
+   50
+  ]
+ },
+ {
+  "name": "P",
+  "show": "P",
+  "logic": 25,
+  "location": 33,
+  "rect": [
+   737,
+   244,
+   50,
+   50
+  ]
+ },
+ {
+  "name": "[",
+  "show": "[",
+  "logic": 53,
+  "location": 34,
+  "rect": [
+   792,
+   244,
+   50,
+   50
+  ]
+ },
+ {
+  "name": "]",
+  "show": "]",
+  "logic": 54,
+  "location": 35,
+  "rect": [
+   847,
+   244,
+   50,
+   50
+  ]
+ },
+ {
+  "name": "|",
+  "show": "|",
+  "logic": 55,
+  "location": 37,
+  "rect": [
+   902,
+   244,
+   82,
+   50
+  ]
+ },
+ {
+  "name": "Delete",
+  "show": "Del",
+  "logic": 81,
+  "location": 38,
+  "rect": [
+   985,
+   244,
+   50,
+   50
+  ]
+ },
+ {
+  "name": "LED-LEFT-2",
+  "show": "",
+  "logic": -1,
+  "location": 42,
+  "rect": [
+   145,
+   318,
+   10,
+   0
+  ]
+ },
+ {
+  "name": "LED-RIGHT-2",
+  "show": "",
+  "logic": -1,
+  "location": 43,
+  "rect": [
+   1039,
+   318,
+   10,
+   0
+  ]
+ },
+ {
+  "name": "Caps Lock",
+  "show": "Caps L",
+  "logic": 62,
+  "location": 44,
+  "rect": [
+   158,
+   300,
+   95,
+   50
+  ]
+ },
+ {
+  "name": "A",
+  "show": "A",
+  "logic": 10,
+  "location": 46,
+  "rect": [
+   255,
+   300,
+   50,
+   50
+  ]
+ },
+ {
+  "name": "S",
+  "show": "S",
+  "logic": 28,
+  "location": 47,
+  "rect": [
+   310,
+   300,
+   50,
+   50
+  ]
+ },
+ {
+  "name": "D",
+  "show": "D",
+  "logic": 13,
+  "location": 48,
+  "rect": [
+   365,
+   300,
+   50,
+   50
+  ]
+ },
+ {
+  "name": "F",
+  "show": "F",
+  "logic": 15,
+  "location": 49,
+  "rect": [
+   420,
+   300,
+   50,
+   50
+  ]
+ },
+ {
+  "name": "G",
+  "show": "G",
+  "logic": 16,
+  "location": 50,
+  "rect": [
+   475,
+   300,
+   50,
+   50
+  ]
+ },
+ {
+  "name": "H",
+  "show": "H",
+  "logic": 17,
+  "location": 51,
+  "rect": [
+   530,
+   300,
+   50,
+   50
+  ]
+ },
+ {
+  "name": "J",
+  "show": "J",
+  "logic": 19,
+  "location": 52,
+  "rect": [
+   585,
+   300,
+   50,
+   50
+  ]
+ },
+ {
+  "name": "K",
+  "show": "K",
+  "logic": 20,
+  "location": 53,
+  "rect": [
+   640,
+   300,
+   50,
+   50
+  ]
+ },
+ {
+  "name": "L",
+  "show": "L",
+  "logic": 21,
+  "location": 54,
+  "rect": [
+   695,
+   300,
+   50,
+   50
+  ]
+ },
+ {
+  "name": ";",
+  "show": ";",
+  "logic": 56,
+  "location": 55,
+  "rect": [
+   751,
+   300,
+   50,
+   50
+  ]
+ },
+ {
+  "name": "'",
+  "show": "'",
+  "logic": 57,
+  "location": 56,
+  "rect": [
+   805,
+   300,
+   50,
+   50
+  ]
+ },
+ {
+  "name": "Return",
+  "show": "Enter",
+  "logic": 46,
+  "location": 58,
+  "rect": [
+   860,
+   300,
+   122,
+   50
+  ]
+ },
+ {
+  "name": "Page Up",
+  "show": "P U",
+  "logic": 80,
+  "location": 60,
+  "rect": [
+   985,
+   300,
+   50,
+   50
+  ]
+ },
+ {
+  "name": "LED-LEFT-3",
+  "show": "",
+  "logic": -1,
+  "location": 64,
+  "rect": [
+   145,
+   415,
+   10,
+   0
+  ]
+ },
+ {
+  "name": "LED-RIGHT-3",
+  "show": "",
+  "logic": -1,
+  "location": 65,
+  "rect": [
+   1039,
+   415,
+   10,
+   0
+  ]
+ },
+ {
+  "name": "Left Shift",
+  "show": "Shift",
+  "logic": 3,
+  "location": 66,
+  "rect": [
+   158,
+   354,
+   122,
+   54
+  ]
+ },
+ {
+  "name": "Z",
+  "show": "Z",
+  "logic": 35,
+  "location": 68,
+  "rect": [
+   283,
+   354,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "X",
+  "show": "X",
+  "logic": 33,
+  "location": 69,
+  "rect": [
+   338,
+   354,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "C",
+  "show": "C",
+  "logic": 12,
+  "location": 70,
+  "rect": [
+   393,
+   354,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "V",
+  "show": "V",
+  "logic": 31,
+  "location": 71,
+  "rect": [
+   448,
+   354,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "B",
+  "show": "B",
+  "logic": 11,
+  "location": 72,
+  "rect": [
+   503,
+   354,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "N",
+  "show": "N",
+  "logic": 23,
+  "location": 73,
+  "rect": [
+   558,
+   354,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "M",
+  "show": "M",
+  "logic": 22,
+  "location": 74,
+  "rect": [
+   613,
+   354,
+   50,
+   54
+  ]
+ },
+ {
+  "name": ",",
+  "show": ",",
+  "logic": 59,
+  "location": 75,
+  "rect": [
+   669,
+   354,
+   50,
+   54
+  ]
+ },
+ {
+  "name": ".",
+  "show": ".",
+  "logic": 60,
+  "location": 76,
+  "rect": [
+   724,
+   354,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "/",
+  "show": "/",
+  "logic": 61,
+  "location": 77,
+  "rect": [
+   779,
+   354,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "Right Shift",
+  "show": "Shift",
+  "logic": 7,
+  "location": 79,
+  "rect": [
+   834,
+   354,
+   95,
+   54
+  ]
+ },
+ {
+  "name": "Up Arrow",
+  "show": "\u2191",
+  "logic": 87,
+  "location": 81,
+  "rect": [
+   929,
+   354,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "Page Down",
+  "show": "P D",
+  "logic": 83,
+  "location": 82,
+  "rect": [
+   985,
+   354,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "Left Control",
+  "show": "Ctrl",
+  "logic": 2,
+  "location": 88,
+  "rect": [
+   158,
+   410,
+   68,
+   54
+  ]
+ },
+ {
+  "name": "Fn",
+  "show": "Fn",
+  "logic": 0,
+  "location": 89,
+  "rect": [
+   228,
+   410,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "Left Win Command",
+  "show": "Left Command",
+  "logic": 5,
+  "location": 90,
+  "rect": [
+   282,
+   410,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "Left Alt Option",
+  "show": "Left Option",
+  "logic": 4,
+  "location": 91,
+  "rect": [
+   337,
+   410,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "fn1",
+  "show": "fnx1",
+  "logic": 50,
+  "location": 92,
+  "rect": [
+   365,
+   470,
+   152,
+   0
+  ]
+ },
+ {
+  "name": "Space",
+  "show": "Space",
+  "logic": 109,
+  "location": 94,
+  "rect": [
+   392,
+   410,
+   342,
+   50
+  ]
+ },
+ {
+  "name": "fn2",
+  "show": "fnx2",
+  "logic": 110,
+  "location": 95,
+  "rect": [
+   517,
+   470,
+   122,
+   0
+  ]
+ },
+ {
+  "name": "fn3",
+  "show": "fnx3",
+  "logic": 111,
+  "location": 97,
+  "rect": [
+   639,
+   470,
+   69,
+   0
+  ]
+ },
+ {
+  "name": "Right Alt Option",
+  "show": "Right Alt",
+  "logic": 8,
+  "location": 99,
+  "rect": [
+   735,
+   410,
+   68,
+   54
+  ]
+ },
+ {
+  "name": "Right Menu Option",
+  "show": "Right Option",
+  "logic": 1,
+  "location": 100,
+  "rect": [
+   803,
+   410,
+   68,
+   54
+  ]
+ },
+ {
+  "name": "Left Arrow",
+  "show": "\u2190",
+  "logic": 85,
+  "location": 102,
+  "rect": [
+   875,
+   410,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "Down Arrow",
+  "show": "\u2193",
+  "logic": 86,
+  "location": 103,
+  "rect": [
+   929,
+   410,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "Right Arrow",
+  "show": "\u2192",
+  "logic": 84,
+  "location": 104,
+  "rect": [
+   985,
+   410,
+   50,
+   54
+  ]
+ },
+ {
+  "name": "LED-TOP-1",
+  "show": "",
+  "logic": -1,
+  "location": 110,
+  "rect": [
+   273,
+   168,
+   20,
+   0
+  ]
+ },
+ {
+  "name": "LED-TOP-2",
+  "show": "",
+  "logic": -1,
+  "location": 111,
+  "rect": [
+   395,
+   168,
+   20,
+   0
+  ]
+ },
+ {
+  "name": "LED-TOP-3",
+  "show": "",
+  "logic": -1,
+  "location": 112,
+  "rect": [
+   441,
+   168,
+   20,
+   0
+  ]
+ },
+ {
+  "name": "LED-TOP-4",
+  "show": "",
+  "logic": -1,
+  "location": 113,
+  "rect": [
+   565,
+   168,
+   20,
+   0
+  ]
+ },
+ {
+  "name": "LED-TOP-5",
+  "show": "",
+  "logic": -1,
+  "location": 114,
+  "rect": [
+   604,
+   168,
+   20,
+   0
+  ]
+ },
+ {
+  "name": "LED-TOP-6",
+  "show": "",
+  "logic": -1,
+  "location": 115,
+  "rect": [
+   725,
+   168,
+   20,
+   0
+  ]
+ },
+ {
+  "name": "LED-TOP-7",
+  "show": "",
+  "logic": -1,
+  "location": 116,
+  "rect": [
+   770,
+   168,
+   20,
+   0
+  ]
+ },
+ {
+  "name": "LED-TOP-8",
+  "show": "",
+  "logic": -1,
+  "location": 117,
+  "rect": [
+   900,
+   168,
+   20,
+   0
+  ]
+ },
+ {
+  "name": "LED-BOTTOM-1",
+  "show": "",
+  "logic": -1,
+  "location": 118,
+  "rect": [
+   202,
+   470,
+   0,
+   0
+  ]
+ },
+ {
+  "name": "LED-BOTTOM-2",
+  "show": "",
+  "logic": -1,
+  "location": 119,
+  "rect": [
+   312,
+   470,
+   0,
+   0
+  ]
+ },
+ {
+  "name": "LED-BOTTOM-3",
+  "show": "",
+  "logic": -1,
+  "location": 120,
+  "rect": [
+   422,
+   470,
+   0,
+   0
+  ]
+ },
+ {
+  "name": "LED-BOTTOM-4",
+  "show": "",
+  "logic": -1,
+  "location": 121,
+  "rect": [
+   522,
+   470,
+   0,
+   0
+  ]
+ },
+ {
+  "name": "LED-BOTTOM-5",
+  "show": "",
+  "logic": -1,
+  "location": 122,
+  "rect": [
+   632,
+   470,
+   0,
+   0
+  ]
+ },
+ {
+  "name": "LED-BOTTOM-6",
+  "show": "",
+  "logic": -1,
+  "location": 123,
+  "rect": [
+   742,
+   470,
+   0,
+   0
+  ]
+ },
+ {
+  "name": "LED-BOTTOM-7",
+  "show": "",
+  "logic": -1,
+  "location": 124,
+  "rect": [
+   852,
+   470,
+   0,
+   0
+  ]
+ },
+ {
+  "name": "LED-BOTTOM-8",
+  "show": "",
+  "logic": -1,
+  "location": 125,
+  "rect": [
+   952,
+   470,
+   0,
+   0
+  ]
+ }
+]

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Filter USB: hanya perangkat dengan VID 0x2726 (10022) yang ditangani.
+
+    0x0094 = 68 (ZX68, FWID 0x97220410)
+    0x00A6 = 166 (ZX68, FWID 0x97220411)
+    Nilai desimal dipakai karena atribut ini bertipe integer.
+-->
+<resources>
+    <usb-device vendor-id="10022" product-id="148" />
+    <usb-device vendor-id="10022" product-id="166" />
+</resources>

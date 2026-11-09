@@ -1,0 +1,138 @@
+[
+ {
+  "guid": "2BCE9E32-D806-46d0-A866-3ADAFAFDD7C1",
+  "name": "Full Red light"
+ },
+ {
+  "guid": "7D765D1C-64FD-4033-90EA-1556502AA9B5",
+  "name": "Full Purple Light"
+ },
+ {
+  "guid": "A606CEF7-17C9-4849-BC2A-CFADD27AF02E",
+  "name": "Full White Light"
+ },
+ {
+  "guid": "EAE11DA5-004D-49f9-A5A6-050F00FB9038",
+  "name": "Full Blue Light"
+ },
+ {
+  "guid": "61B57825-DEBB-470d-B39A-258888529250",
+  "name": "Magic Waves"
+ },
+ {
+  "guid": "96D9DB51-DC2A-4f26-B7F1-CC03C087D0EA",
+  "name": "White Light Breathing"
+ },
+ {
+  "guid": "6920D09F-C280-4e97-8734-0054FAD4D770",
+  "name": "Red Light Breathing"
+ },
+ {
+  "guid": "CB7DBFD0-2463-4aa7-AAEF-0512BFC1F6A2",
+  "name": "Blue Light Breathing"
+ },
+ {
+  "guid": "01BF5484-6303-486e-BD3F-2267B53C3926",
+  "name": "Green Light Breathing"
+ },
+ {
+  "guid": "9A5905BC-25AE-46a2-AAF0-25B13BC2BF3B",
+  "name": "HustleandFlow"
+ },
+ {
+  "guid": "26C232E5-B89B-4b17-BF1D-75DC61351A93",
+  "name": "Full Green Light"
+ },
+ {
+  "guid": "014D58A9-7E44-43c7-BA92-1063623B02DD",
+  "name": "RGB"
+ },
+ {
+  "guid": "1B6DB72C-6093-43ac-B4BC-59670CA31696",
+  "name": "Spectral Cycle"
+ },
+ {
+  "guid": "7E8488C3-EB93-46a8-B505-F9E95FD67322",
+  "name": "Windmill"
+ },
+ {
+  "guid": "B09FC694-4B0E-4fcb-83E7-8EB4A77E566A",
+  "name": "Rainbow Waves"
+ },
+ {
+  "guid": "6C3B992C-55C8-4c61-B1D0-1789B9E4A8D9",
+  "name": "Gradually Bright"
+ },
+ {
+  "guid": "51FF89E8-8E4D-4fd2-8B26-B1BC7F2BB57E",
+  "name": "Seasons Like Spring"
+ },
+ {
+  "guid": "83D327C0-CB0B-4bdf-AA1D-37C1D81BDD8B",
+  "name": "Colorful Waterfall"
+ },
+ {
+  "guid": "186CDCE3-FA12-41d9-9B6D-80F3CA47B360",
+  "name": "Neon Ribbon"
+ },
+ {
+  "guid": "586C6562-3006-4c92-8B44-50920FE0C213",
+  "name": "Drifting Collision"
+ },
+ {
+  "guid": "6107B7F8-5C91-4ee1-8220-D80C15715710",
+  "name": "Colored clouds flying"
+ },
+ {
+  "guid": "C72F3EE5-3B74-4f5e-A2B4-A71D008D2731",
+  "name": "Colorful Gradient"
+ },
+ {
+  "guid": "B0239EDC-6B9B-44e4-B2B5-BC0C2297B9C6",
+  "name": "Waverider"
+ },
+ {
+  "guid": "908AA962-B0C8-4517-8E61-1E4C106CC4BA",
+  "name": "Star lighting"
+ },
+ {
+  "guid": "83CB4FFD-895B-484c-8708-8DEAB1D620B5",
+  "name": "GH68-1"
+ },
+ {
+  "guid": "406931D7-3D67-4d0d-AB2C-67DD6B4DFD58",
+  "name": "GH68-2"
+ },
+ {
+  "guid": "FEB949EE-7491-45ea-8D8E-948295DB80EA",
+  "name": "GH68-3"
+ },
+ {
+  "guid": "28832822-89DA-414c-802A-8BED4F944BD4",
+  "name": "GH64-1"
+ },
+ {
+  "guid": "31B50ED2-38A8-4b56-A98D-FAC1516E2E20",
+  "name": "GH64-2"
+ },
+ {
+  "guid": "F39846AE-6897-4b7e-A2C7-A32E1DFDDFD8",
+  "name": "GH64-3"
+ },
+ {
+  "guid": "6C635C54-846F-4539-8AAC-765851E87A10",
+  "name": "GH64-B"
+ },
+ {
+  "guid": "9EE4CB48-71F1-4346-A677-56D8A4A2A45D",
+  "name": "GH64-C"
+ },
+ {
+  "guid": "F9E972A1-9DB3-4b84-8C07-AF714C56F20E",
+  "name": "GH64-D"
+ },
+ {
+  "guid": "11AA1E47-6F0F-4f67-8DEA-BC6A85C41103",
+  "name": "GH64-E"
+ }
+]

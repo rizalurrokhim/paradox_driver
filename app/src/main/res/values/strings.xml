@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ZX68 Configurator</string>
+    <string name="app_subtitle">Kontrol Paradox Ghost ZX68 dari Android</string>
+
+    <!-- Status koneksi -->
+    <string name="status_disconnected">Belum terhubung</string>
+    <string name="status_connecting">Menghubungkan…</string>
+    <string name="status_connected_short">Terhubung — %1$s</string>
+    <string name="btn_connect">Hubungkan keyboard</string>
+    <string name="btn_disconnect">Putuskan</string>
+    <string name="btn_lighting">Pencahayaan</string>
+    <string name="btn_keymap">Remap tombol</string>
+    <string name="btn_console">Konsol protokol</string>
+    <string name="btn_about">Info &amp; uji mandiri</string>
+    <string name="label_log">Log komunikasi</string>
+    <string name="btn_clear_log">Bersihkan log</string>
+    <string name="hint_connect">Colokkan keyboard ZX68 lewat OTG, lalu tekan “Hubungkan keyboard”.</string>
+
+    <!-- Pencahayaan -->
+    <string name="title_lighting">Pencahayaan</string>
+    <string name="label_effect">Efek</string>
+    <string name="label_brightness">Kecerahan</string>
+    <string name="label_speed">Kecepatan</string>
+    <string name="label_color">Warna</string>
+    <string name="btn_apply_lighting">Kirim ke keyboard</string>
+    <string name="btn_apply_and_commit">Kirim &amp; simpan</string>
+
+    <!-- Keymap -->
+    <string name="title_keymap">Remap tombol</string>
+    <string name="keymap_hint">Ketuk tombol pada gambar, lalu pilih fungsi baru.</string>
+    <string name="btn_pick_function">Ubah fungsi tombol</string>
+    <string name="btn_write_keymap">Terapkan ke keyboard</string>
+    <string name="btn_reset_keymap">Reset remap</string>
+    <string name="keymap_selected">Dipilih: %1$s</string>
+
+    <!-- Konsol -->
+    <string name="title_console">Konsol protokol</string>
+    <string name="console_hint">Masukkan 64 byte hex. Header: cmd, sub, alamat(3), panjang, CRC(2), payload.</string>
+    <string name="btn_send">Kirim frame</string>
+    <string name="btn_send_raw_no_reply">Kirim tanpa tunggu balasan</string>
+
+    <!-- Info -->
+    <string name="title_about">Info &amp; uji mandiri</string>
+    <string name="btn_self_test">Jalankan uji mandiri</string>
+
+    <!-- Dialog pilih tombol -->
+    <string name="dialog_cancel">Batal</string>
+</resources>

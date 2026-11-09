@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ikon peluncur untuk perangkat Android < 8.0 (tanpa adaptive icon). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#0B0F14"
+        android:pathData="M0,0h108v108H0z" />
+    <path
+        android:fillColor="#00E5FF"
+        android:pathData="M28,40h52a6,6 0,0 1,6 6v18a6,6 0,0 1,-6 6H28a6,6 0,0 1,-6 -6V46a6,6 0,0 1,6 -6z" />
+    <path
+        android:fillColor="#0B0F14"
+        android:pathData="M32,46h6v6h-6zM42,46h6v6h-6zM52,46h6v6h-6zM62,46h6v6h-6zM72,46h6v6h-6zM32,56h6v6h-6zM42,56h6v6h-6zM52,56h22v6H52z" />
+</vector>
