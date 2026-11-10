@@ -32,7 +32,7 @@ Tautan unduh langsung (tanpa halaman GitHub):
 <https://raw.githubusercontent.com/rizalurrokhim/paradox_driver/main/dist/ParadoxZx68-1.0.3-debug.apk>
 
 Buka tautan itu di browser HP, lalu pasang file APK yang terunduh
-(SHA-256 diawali `20c7486d`).
+(SHA-256 diawali `1c76cae2`).
 
 > APK ditandatangani sertifikat **debug** Android. Untuk memasangnya, aktifkan
 > "Instal dari sumber tidak dikenal" untuk aplikasi file/browser yang Anda pakai.

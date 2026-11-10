@@ -131,7 +131,7 @@ class MainActivity : AppCompatActivity() {
 
         btnConnect.setOnClickListener { startConnect() }
         findViewById<MaterialButton>(R.id.btnDisconnect).setOnClickListener { disconnect() }
-        btnApply.setOnClickListener { sendLighting(commit = false) }
+        btnApply.setOnClickListener { sendLighting() }
         findViewById<MaterialButton>(R.id.btnScan).setOnClickListener { refreshDevices() }
         findViewById<MaterialButton>(R.id.btnPickDevice).setOnClickListener { showDevicePicker() }
         findViewById<MaterialButton>(R.id.btnKeymap).setOnClickListener {
@@ -517,7 +517,7 @@ class MainActivity : AppCompatActivity() {
     // Pencahayaan
     // ---------------------------------------------------------------------
 
-    private fun sendLighting(commit: Boolean) {
+    private fun sendLighting() {
         if (!Zx68Session.isConnected()) {
             Toast.makeText(this, "Keyboard belum terhubung", Toast.LENGTH_SHORT).show()
             return
@@ -527,13 +527,14 @@ class MainActivity : AppCompatActivity() {
 
         Zx68Session.io.execute {
             val protocol = Zx68Session.protocol(this)
+            // 1. Kirim setelan LED (model, brightness, speed, color, enable)
             val result = protocol.setLighting(settings)
-            val commitResult = if (commit) protocol.apply() else null
+            // 2. Auto-commit (sama seperti driver Windows: setelan disimpan ke flash
+            // RAM tanpa apply, jadi langkah ini wajib untuk persistensi).
+            val applyResult = protocol.apply()
             val summary = buildString {
                 appendLine("setLighting: ${if (result.ok) "OK" else "GAGAL"} — ${result.message}")
-                if (commitResult != null) {
-                    appendLine("commit: ${if (commitResult.ok) "OK" else "GAGAL"} — ${commitResult.message}")
-                }
+                appendLine("apply: ${if (applyResult.ok) "OK" else "GAGAL"} — ${applyResult.message}")
                 append(
                     "model=${settings.model} brightness=${settings.brightness} " +
                         "speed=${settings.speed} color=${settings.color} enable=${settings.enable}",
