@@ -22,8 +22,31 @@ Semua alamat RVA di bawah mengacu ke `CDDriver/COR-M3-MKDriver.dll`
 Model satu keluarga (bukan ZX68) yang ikut dikenali driver:
 `GH68` (`0x0031`), `GHOST OPT64` (`0x005E`, `0x006B`), `GH21` (`0x00A4`).
 
-Aplikasi Android hanya membuka PID ZX68 secara default; mode "satu keluarga"
-ada di `DeviceIds.isSameFamily()` untuk eksperimen.
+### VID/PID generik pada unit nyata
+
+Pada sebagian unit, keyboard melaporkan **ID controller**-nya, bukan ID
+Paradox, selama berada di mode keyboard biasa. Kasus yang teramati di
+lapangan: VID `0x1EA7` (SinoWealth) PID `0x0907`. Perangkat itu tetap
+keyboard yang sama — interface konfigurasi vendornya tetap ada.
+
+Karena itu aplikasi Android **tidak** mencocokkan VID/PID saja. Pemilihan
+dilakukan lewat bentuk interface (`UsbHidTransport.scoreOf()`):
+
+| Ciri | Bobot | Arti |
+|------|-------|------|
+| VID `0x2726` + PID `0x0094`/`0x00A6` | +100 | ID resmi driver |
+| VID/PID generik yang teramati | +55 | mis. `0x1EA7:0x0907` |
+| Interface HID vendor (class 3, subclass 0, protocol 0) dengan endpoint interrupt OUT ≥ 64 byte | +45 | kanal perintah driver |
+| Ada endpoint OUT | +15 | bisa dikirimi paket |
+| Ada endpoint IN | +10 | bisa dibaca balasannya |
+| Hanya interface keyboard boot (subclass 1, protocol 1) | −30 | bukan kanal konfigurasi |
+
+Perangkat dengan skor tertinggi dipakai. Bila hasilnya salah, tab
+**Perangkat** menampilkan semua perangkat yang terpasang dan pengguna bisa
+memilih manual; pilihan itu langsung dipakai untuk `open()`.
+
+Daftar ID generik ada di `DeviceIds.OBSERVED_DEVICE_IDS`; menambah entri di
+sana hanya menaikkan skor, bukan menggantikan pencocokan interface.
 
 ---
 

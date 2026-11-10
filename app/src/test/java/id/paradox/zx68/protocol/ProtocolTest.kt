@@ -134,4 +134,15 @@ class ProtocolTest {
         assertTrue(!DeviceIds.isZx68(0x2726, 0x00A4))
         assertTrue(!DeviceIds.isZx68(0x1234, 0x0094))
     }
+
+    @Test
+    fun `ID generik controller tetap dikenali sebagai kandidat ZX68`() {
+        // VID 0x1EA7 (SinoWealth) PID 0x0907 muncul pada unit ZX68 ketika
+        // keyboard berjalan di mode keyboard biasa, bukan mode vendor Paradox.
+        assertTrue(DeviceIds.isObservedZx68(0x1EA7, 0x0907))
+        // Tetapi tetap bukan PID resmi driver, jadi harus dibedakan.
+        assertTrue(!DeviceIds.isZx68(0x1EA7, 0x0907))
+        // ID yang tidak pernah teramati tidak boleh dianggap kandidat.
+        assertTrue(!DeviceIds.isObservedZx68(0x1EA7, 0x1234))
+    }
 }

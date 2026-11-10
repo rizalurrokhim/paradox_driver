@@ -19,7 +19,7 @@ ringkas, lihat juga `agent.md` (alias file ini).
 | Test | `./gradlew :app:testDebugUnitTest` (9 tes, tanpa perangkat) |
 | Lint | `./gradlew :app:lintDebug` — harus **0 error** |
 | APK siap unduh | `dist/ParadoxZx68-1.0.0-debug.apk` |
-| Hardware | VID `0x2726`, PID `0x0094` / `0x00A6` |
+| Hardware | ID resmi VID `0x2726` PID `0x0094`/`0x00A6`; sebagian unit melaporkan ID generik (mis. `0x1EA7:0x0907`) — lihat §1a |
 
 ---
 
@@ -46,6 +46,19 @@ berubah** — bug paling sulit dilacak.
 
 Tes di `app/src/test/.../ProtocolTest.kt` mengunci poin 1–6. Refactor yang
 membuat tes ini gagal berarti refactor itu salah.
+
+### 1a. Deteksi perangkat **jangan** hanya VID/PID
+
+Unit ZX68 di lapangan bisa melaporkan ID controller generik, bukan ID Paradox
+(kasus teramati: VID `0x1EA7` PID `0x0907`, controller SinoWealth). Karena itu
+`UsbHidTransport.scoreOf()` memberi skor berdasarkan **bentuk interface**:
+interface HID class 3 subclass 0 protocol 0 dengan endpoint interrupt OUT
+≥ 64 byte adalah kanal perintah driver. VID/PID resmi hanya `+100`, ID generik
+`+55`, kanal vendor `+45`.
+
+Jangan “memperbaiki” deteksi dengan menambah VID/PID ke daftar saja tanpa
+memeriksa `candidates()` di log; dan jangan pernah membuka perangkat paksa
+tanpa meminta izin atau tanpa mengecek ada endpoint OUT.
 
 ---
 
@@ -98,7 +111,7 @@ Tentukan lapisan mana yang rusak:
 
 | Gejala | Lapisan tersangka |
 |--------|-------------------|
-| Keyboard tidak terdeteksi | `UsbHidTransport.findDevice` / `device_filter.xml` |
+| Keyboard tidak terdeteksi | `UsbHidTransport.scoreOf/candidates` (bukan VID/PID saja) |
 | Dialog izin tidak muncul / macet | alur izin di `MainActivity` |
 | "Gagal membuka perangkat" | `UsbHidTransport.open` (claim/interface) |
 | Semua perintah "terkirim" tapi tidak ada efek | interface salah, atau `length`/CRC salah, atau butuh commit `0x17` |

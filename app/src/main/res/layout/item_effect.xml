@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Satu kotak efek pada grid pencahayaan (meniru tile efek driver Windows). -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/effectTile"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:background="@drawable/bg_effect_tile"
+    android:gravity="center"
+    android:minHeight="64dp"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <View
+        android:id="@+id/effectDot"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:background="@drawable/bg_effect_dot" />
+
+    <TextView
+        android:id="@+id/tvEffectName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="2"
+        android:textColor="@color/text_secondary"
+        android:textSize="10sp" />
+</LinearLayout>

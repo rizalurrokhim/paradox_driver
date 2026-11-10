@@ -25,14 +25,14 @@ HIDComm.dll ──► WriteFile (HID OUT)         UsbHidTransport ──► bulk
 
 **Langsung pasang, tanpa build:**
 
-- [`dist/ParadoxZx68-1.0.1-debug.apk`](dist/ParadoxZx68-1.0.1-debug.apk)
-  (±6,6 MB, minSdk 23 / Android 6.0+, targetSdk 34)
+- [`dist/ParadoxZx68-1.0.3-debug.apk`](dist/ParadoxZx68-1.0.3-debug.apk)
+  (±5,8 MB, minSdk 23 / Android 6.0+, targetSdk 34)
 
 Tautan unduh langsung (tanpa halaman GitHub):
-<https://raw.githubusercontent.com/rizalurrokhim/paradox_driver/main/dist/ParadoxZx68-1.0.1-debug.apk>
+<https://raw.githubusercontent.com/rizalurrokhim/paradox_driver/main/dist/ParadoxZx68-1.0.3-debug.apk>
 
 Buka tautan itu di browser HP, lalu pasang file APK yang terunduh
-(±5,8 MB, SHA-256 diawali `4c2ac0ca`).
+(SHA-256 diawali `b4cf0b84`).
 
 > APK ditandatangani sertifikat **debug** Android. Untuk memasangnya, aktifkan
 > "Instal dari sumber tidak dikenal" untuk aplikasi file/browser yang Anda pakai.
@@ -131,7 +131,8 @@ Google Maven/Maven Central saat build pertama.
 
 APK hasil build disalin ke `dist/` agar bisa diunduh langsung:
 
-```bash    cp app/build/outputs/apk/debug/app-debug.apk dist/ParadoxZx68-1.0.2-debug.apk
+```bash
+cp app/build/outputs/apk/debug/app-debug.apk dist/ParadoxZx68-1.0.3-debug.apk
 ```
 
 ## Struktur proyek
@@ -175,6 +176,25 @@ perangkat di lingkungan build). Karena itu aplikasi menyediakan konsol protokol
 dan log TX/RX agar Anda bisa memastikan sendiri di perangkat nyata.
 
 ## Riwayat perubahan
+
+**1.0.3**
+
+- **Deteksi keyboard diperbaiki untuk unit dengan VID/PID generik.** Banyak
+  ZX68 melaporkan ID controller-nya, bukan ID Paradox — kasus nyata:
+  VID `0x1EA7` PID `0x0907` (SinoWealth). Sebelumnya aplikasi hanya mencari
+  VID `0x2726`, jadi keyboard tidak pernah cocok. Sekarang perangkat dipilih
+  lewat bentuk interface (HID class 3 dengan endpoint interrupt OUT 64 byte),
+  dan VID/PID hanya menambah skor. Lihat `docs/PROTOCOL.md` §1.
+- **Pemilih perangkat manual** di tab Perangkat: semua perangkat USB yang
+  terpasang ditampilkan, lengkap dengan skor kelayakan, dan bisa diketuk untuk
+  dihubungkan. Ini jalur keluar bila deteksi otomatis masih salah.
+- **UI disusun ulang menyerupai software Windows**: header perangkat + pil
+  status, tab Pencahayaan/Perangkat, grid 34 efek seperti tile pada aplikasi
+  aslinya, baris warna, slider kecerahan & kecepatan, serta bar aksi bawah.
+- Izin USB memakai `PendingIntent` dengan `FLAG_MUTABLE` (wajib di Android 12+)
+  sehingga dialog izin tidak lagi gagal muncul.
+- Log TX/RX kini menampilkan potongan hex paket, interface yang dipilih, dan
+  endpoint OUT/IN yang dipakai — cukup untuk mendiagnosis sendiri di HP.
 
 **1.0.2**
 

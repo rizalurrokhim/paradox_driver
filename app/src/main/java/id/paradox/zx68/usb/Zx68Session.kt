@@ -3,7 +3,6 @@ package id.paradox.zx68.usb
 import android.annotation.SuppressLint
 import android.content.Context
 import android.hardware.usb.UsbDevice
-import android.os.Build
 import id.paradox.zx68.protocol.DeviceIds
 import id.paradox.zx68.protocol.Zx68Protocol
 import id.paradox.zx68.util.LogBus
@@ -18,14 +17,14 @@ import java.util.concurrent.Executors
  */
 object Zx68Session {
 
-    // Aman disimpan statis: transport hanya memegang *application context*
-    // (lihat UsbHidTransport), sehingga tidak ada Activity yang bocor.
+    // Aman disimpan statis: transport hanya memegang application context,
+    // sehingga tidak ada Activity yang bocor.
     @SuppressLint("StaticFieldLeak")
     private var transportInstance: UsbHidTransport? = null
 
     private var protocolInstance: Zx68Protocol? = null
 
-    /** Deskripsi perangkat yang sedang terhubung (untuk UI). */
+    /** Label perangkat yang sedang terhubung (untuk UI). */
     var deviceLabel: String? = null
         private set
 
@@ -37,8 +36,7 @@ object Zx68Session {
 
     /** Transport (dibuat sekali per proses). */
     fun transport(context: Context): UsbHidTransport {
-        val existing = transportInstance
-        if (existing != null) return existing
+        transportInstance?.let { return it }
         val created = UsbHidTransport(context.applicationContext)
         transportInstance = created
         return created
@@ -46,8 +44,7 @@ object Zx68Session {
 
     /** Protokol siap pakai. */
     fun protocol(context: Context): Zx68Protocol {
-        val existing = protocolInstance
-        if (existing != null) return existing
+        protocolInstance?.let { return it }
         val created = Zx68Protocol(transport(context))
         protocolInstance = created
         return created
@@ -56,48 +53,59 @@ object Zx68Session {
     /** `true` bila koneksi USB aktif. */
     fun isConnected(): Boolean = transportInstance?.isOpen == true
 
+    /** Daftar perangkat yang bisa dipilih manual, paling layak lebih dulu. */
+    fun candidates(context: Context): List<UsbHidTransport.Candidate> =
+        transport(context).candidates()
+
+    /** Hasil percobaan membuka koneksi. */
+    sealed class ConnectResult {
+        /** Koneksi terbuka. */
+        data class Success(val label: String) : ConnectResult()
+
+        /** Izin USB belum ada; dialog sudah diminta. */
+        data object NeedPermission : ConnectResult()
+
+        /** Tidak ada perangkat yang layak. */
+        data class NotFound(val devices: List<String>) : ConnectResult()
+
+        /** Perangkat ditemukan tetapi antarmuka gagal dibuka. */
+        data class Failed(val label: String) : ConnectResult()
+    }
+
     /**
-     * Mencari keyboard, meminta izin bila perlu, lalu membuka koneksi.
+     * Membuka koneksi ke [device] (atau perangkat terbaik bila `null`).
      *
-     * Fungsi ini harus dipanggil dari thread IO ([io]); callback dijalankan di
-     * thread yang sama.
-     *
-     * @param allowFamily terima juga model sekeluarga (GH68/GH21/OPT64)
-     * @return pasangan (perangkat, berhasil)
+     * Harus dipanggil dari thread [io]. Bila izin belum diberikan, fungsi ini
+     * hanya mengembalikan [ConnectResult.NeedPermission]; pemanggil yang
+     * mengurus dialog izin lalu memanggil ulang.
      */
-    fun connect(
-        context: Context,
-        allowFamily: Boolean = false,
-    ): Pair<UsbDevice?, Boolean> {
+    fun connect(context: Context, device: UsbDevice? = null): ConnectResult {
         val transport = transport(context)
-        val device = transport.findDevice(allowFamily)
-        if (device == null) {
-            LogBus.log(
-                "Perangkat tidak ditemukan (VID=0x%04X PID=%s)".format(
-                    DeviceIds.VENDOR_ID,
-                    DeviceIds.ZX68_PRODUCT_IDS.joinToString("/") { "0x%04X".format(it) },
-                ),
-            )
-            return null to false
+        val target = device ?: transport.findDevice()
+        if (target == null) {
+            val seen = transport.listDevices().map { transport.describe(it) }
+            LogBus.log("Tidak ada perangkat yang cocok. Terlihat: ${seen.size} perangkat")
+            seen.forEach { LogBus.log("  · $it") }
+            return ConnectResult.NotFound(seen)
         }
 
-        LogBus.log(
-            "Ditemukan ${device.productName ?: "USB device"} " +
-                "VID=0x%04X PID=0x%04X".format(device.vendorId, device.productId),
-        )
-
-        if (!transport.hasPermission(device)) {
-            LogBus.log("Meminta izin USB…")
-            // Koneksi memerlukan izin; pemanggil harus mengulang setelah dialog.
-            return device to false
+        if (!transport.hasPermission(target)) {
+            LogBus.log("Butuh izin USB untuk ${transport.describe(target)}")
+            return ConnectResult.NeedPermission
         }
 
-        val opened = transport.open(device)
-        if (opened) {
-            deviceLabel = buildLabel(device)
-            LogBus.log("Terhubung: $deviceLabel")
+        if (!transport.open(target)) {
+            return ConnectResult.Failed(transport.describe(target))
         }
-        return device to opened
+
+        val label = buildString {
+            append(target.productName ?: "ZX68")
+            append(" · ")
+            append(DeviceIds.modelNameFor(target.vendorId, target.productId))
+        }
+        deviceLabel = label
+        LogBus.log("Terhubung: $label")
+        return ConnectResult.Success(label)
     }
 
     /** Menutup koneksi aktif. */
@@ -105,14 +113,5 @@ object Zx68Session {
         transportInstance?.close()
         deviceLabel = null
         LogBus.log("Koneksi USB ditutup")
-    }
-
-    /** Label ringkas untuk UI. */
-    private fun buildLabel(device: UsbDevice): String {
-        val model = DeviceIds.modelNameFor(device.productId)
-        val name = device.productName ?: "ZX68"
-        val sdk = "Android ${Build.VERSION.RELEASE}"
-        return "$name · $model · VID 0x%04X PID 0x%04X · $sdk"
-            .format(device.vendorId, device.productId)
     }
 }

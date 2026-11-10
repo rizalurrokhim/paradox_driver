@@ -1,30 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ZX68 Configurator</string>
-    <string name="app_subtitle">Kontrol Paradox Ghost ZX68 dari Android</string>
+    <string name="app_subtitle">Paradox Ghost ZX68 — konfigurasi dari Android</string>
+
+    <!-- Header perangkat -->
+    <string name="device_name">Paradox Ghost ZX68</string>
+    <string name="device_model_idle">Belum ada keyboard terhubung</string>
+    <string name="device_model_connected">%1$s · VID 0x%2$04X PID 0x%3$04X</string>
 
     <!-- Status koneksi -->
-    <string name="status_disconnected">Belum terhubung</string>
+    <string name="status_disconnected">Terputus</string>
     <string name="status_connecting">Menghubungkan…</string>
     <string name="status_connected_short">Terhubung — %1$s</string>
+    <string name="status_connected_pill">Tersambung</string>
+
+    <!-- Tab -->
+    <string name="tab_lighting">Pencahayaan</string>
+    <string name="tab_device">Perangkat</string>
+
+    <!-- Label bagian -->
+    <string name="section_effects">EFEK</string>
+    <string name="section_color">WARNA</string>
+    <string name="section_brightness">KECERAHAN: %1$d</string>
+    <string name="section_speed">KECEPATAN: %1$d</string>
+    <string name="section_devices">PERANGKAT USB TERDETEKSI</string>
+    <string name="section_tools">ALAT LAIN</string>
+
+    <!-- Tombol -->
     <string name="btn_connect">Hubungkan keyboard</string>
     <string name="btn_disconnect">Putuskan</string>
-    <string name="btn_lighting">Pencahayaan</string>
+    <string name="btn_apply_lighting">Kirim ke keyboard</string>
+    <string name="btn_apply_and_commit">Kirim &amp; simpan</string>
+    <string name="btn_scan">Pindai ulang</string>
+    <string name="btn_pick_device">Pilih perangkat…</string>
     <string name="btn_keymap">Remap tombol</string>
     <string name="btn_console">Konsol protokol</string>
     <string name="btn_about">Info &amp; uji mandiri</string>
+    <string name="btn_clear_log">Bersihkan</string>
     <string name="label_log">Log komunikasi</string>
-    <string name="btn_clear_log">Bersihkan log</string>
-    <string name="hint_connect">Colokkan keyboard ZX68 lewat OTG, lalu tekan “Hubungkan keyboard”.</string>
+    <string name="hint_connect">Colokkan keyboard lewat OTG, lalu tekan “Hubungkan keyboard”. Bila keyboard tidak terdeteksi otomatis, buka tab Perangkat dan pilih perangkatnya secara manual.</string>
 
-    <!-- Pencahayaan -->
+    <!-- Pencahayaan lengkap -->
     <string name="title_lighting">Pencahayaan</string>
     <string name="label_effect">Efek</string>
     <string name="label_brightness">Kecerahan</string>
     <string name="label_speed">Kecepatan</string>
     <string name="label_color">Warna</string>
-    <string name="btn_apply_lighting">Kirim ke keyboard</string>
-    <string name="btn_apply_and_commit">Kirim &amp; simpan</string>
 
     <!-- Keymap -->
     <string name="title_keymap">Remap tombol</string>
@@ -43,7 +64,5 @@
     <!-- Info -->
     <string name="title_about">Info &amp; uji mandiri</string>
     <string name="btn_self_test">Jalankan uji mandiri</string>
-
-    <!-- Dialog pilih tombol -->
     <string name="dialog_cancel">Batal</string>
 </resources>

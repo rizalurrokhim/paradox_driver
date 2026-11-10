@@ -17,6 +17,16 @@
         <item name="android:windowLightStatusBar">false</item>
     </style>
 
+    <!-- Label bagian (EFEK, WARNA, KECERAHAN) seperti judul kecil pada software Windows. -->
+    <style name="Widget.Zx68.SectionLabel" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:letterSpacing">0.14</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <!-- Tampilan toolbar seragam untuk seluruh layar. -->
     <style name="Widget.Zx68.Toolbar" parent="Widget.Material3.Toolbar">
         <item name="android:background">@color/bg_dark</item>
