@@ -29,8 +29,10 @@ class EffectAdapter(
         set(value) {
             val old = field
             field = value
-            if (old >= 0) notifyItemChanged(old)
-            if (value >= 0) notifyItemChanged(value)
+            // Jaga-jaga saat daftar efek masih kosong: notifyItemChanged dengan
+            // indeks di luar jangkauan membuat LayoutManager tidak konsisten.
+            if (old in names.indices) notifyItemChanged(old)
+            if (value in names.indices) notifyItemChanged(value)
         }
 
     /** Mengganti daftar efek yang ditampilkan. */
