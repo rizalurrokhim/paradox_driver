@@ -181,9 +181,6 @@ class MainActivity : AppCompatActivity() {
 
     /**
      * Langkah 1: cari perangkat, pastikan izin, lalu buka koneksi.
-     *
-     * Berjalan di [Zx68Session.io] agar tidak memblokir UI saat menunggu
-     * dialog izin atau `bulkTransfer`.
      */
     private fun startConnect() {
         if (connecting) return
@@ -200,20 +197,30 @@ class MainActivity : AppCompatActivity() {
             val device = transport.findDevice()
 
             if (device == null) {
+                // Bila perangkat benar-benar tidak muncul, tunggu sebentar lalu
+                // coba lagi sekali — beberapa Android melaporkan perangkat hanya
+                // setelah event USB_DEVICE_ATTACHED disebarkan.
+                try { Thread.sleep(2000) } catch (_: InterruptedException) {}
+                val device2 = transport.findDevice()
                 finishConnect(
-                    hint = "Keyboard ZX68 tidak ditemukan.\n" +
-                        "Pastikan kabel OTG terpasang dan VID/PID 0x%04X:0x0094 " +
-                        "atau 0x%04X:0x00A6 terdeteksi."
-                            .format(DeviceIds.VENDOR_ID, DeviceIds.VENDOR_ID),
+                    hint = buildString {
+                        append("Keyboard ZX68 tidak ditemukan.\n")
+                        append("Pastikan kabel OTG terpasang dan perangkat ")
+                        append("VID=0x%04X PID=0x0094 atau VID=0x%04X PID=0x00A6".format(
+                            DeviceIds.VENDOR_ID, DeviceIds.VENDOR_ID))
+                        append(" terdeteksi.\n")
+                        append("Log perangkat yang terlihat: ")
+                        transport.listDevices().forEach { d ->
+                            append(transport.describe(d) + "; ")
+                        }
+                    }.toString(),
                 )
                 return@execute
             }
 
             var granted = transport.hasPermission(device)
             if (!granted) {
-                LogBus.log("Meminta izin USB untuk ${device.deviceName}")
-                // Broadcast dipakai sebagai jalur cepat; hasil sebenarnya dicek
-                // lewat polling di bawah.
+                LogBus.log("Meminta izin USB untuk ${transport.describe(device)}")
                 runOnUiThread {
                     transport.requestPermission(device) { ok ->
                         LogBus.log(if (ok) "Broadcast izin: diberikan" else "Broadcast izin: ditolak")
@@ -272,7 +279,6 @@ class MainActivity : AppCompatActivity() {
         return transport.hasPermission(device)
     }
 
-    /** Menutup proses koneksi dengan pesan yang terlihat pengguna. */
     private fun finishConnect(hint: String) {
         runOnUiThread {
             connecting = false
@@ -282,11 +288,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // ---------------------------------------------------------------------
-    // UI helper
-    // ---------------------------------------------------------------------
-
-    /** Menyesuaikan kartu status dengan keadaan sesi saat ini. */
     private fun updateStatus() {
         val label = Zx68Session.deviceLabel
         if (Zx68Session.isConnected() && label != null) {
@@ -303,7 +304,6 @@ class MainActivity : AppCompatActivity() {
         btnConnect.isEnabled = !connecting
     }
 
-    /** Menambahkan baris log tanpa memicu penataan ulang seluruh teks. */
     private fun appendLog(line: String) {
         val current = tvLog.text?.toString().orEmpty()
         val merged = if (current.isEmpty()) line else "$current\n$line"

@@ -131,8 +131,7 @@ Google Maven/Maven Central saat build pertama.
 
 APK hasil build disalin ke `dist/` agar bisa diunduh langsung:
 
-```bash
-cp app/build/outputs/apk/debug/app-debug.apk dist/ParadoxZx68-1.0.1-debug.apk
+```bash    cp app/build/outputs/apk/debug/app-debug.apk dist/ParadoxZx68-1.0.2-debug.apk
 ```
 
 ## Struktur proyek
@@ -176,6 +175,12 @@ perangkat di lingkungan build). Karena itu aplikasi menyediakan konsol protokol
 dan log TX/RX agar Anda bisa memastikan sendiri di perangkat nyata.
 
 ## Riwayat perubahan
+
+**1.0.2**
+
+- Perbaikan deteksi perangkat: bila perangkat ZX68 tidak langsung muncul di daftar USB, aplikasi sekarang menunggu beberapa detik dan mencoba lagi sebelum melaporkan "tidak ditemukan", karena beberapa Android hanya menyebarkan perangkat setelah event `USB_DEVICE_ATTACHED`.
+- Bila perangkat ditemukan, log kini mencantumkan nama perangkat (`device.deviceName`) dan deskripsi lengkap (VID/PID + nama) sehingga lebih mudah memastikan keyboard tepat teridentifikasi.
+- Alur izin USB ditunda sedikit: aplikasi kini menunggu izin dengan polling (hingga ±15 detik) setelah menekan **Hubungkan** dan berharap dialog izin muncul; bila tidak ada dialog, periksa log perangkat yang terlihat.
 
 **1.0.1**
 
